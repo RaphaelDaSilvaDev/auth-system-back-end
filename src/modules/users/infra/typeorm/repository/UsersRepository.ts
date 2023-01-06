@@ -10,8 +10,9 @@ export class UsersRepository implements IUsersRepository {
     this.repository = getRepository(User);
   }
 
-  async create({ email, name, password }: ICreateUser): Promise<void> {
+  async create({ id, email, name, password }: ICreateUser): Promise<void> {
     const user = this.repository.create({
+      id,
       name,
       email,
       password,
@@ -22,6 +23,11 @@ export class UsersRepository implements IUsersRepository {
 
   async findByEmail(email: string): Promise<User> {
     const user = await this.repository.findOne({ email });
+    return user;
+  }
+
+  async findById(id: string): Promise<User> {
+    const user = await this.repository.findOne(id);
     return user;
   }
 }
