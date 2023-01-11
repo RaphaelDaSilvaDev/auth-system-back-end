@@ -15,7 +15,7 @@ export class UpdateUserUseCase {
     private userRepository: IUsersRepository
   ) {}
 
-  async exute({ id, name, password }: IRequest) {
+  async execute({ id, name, password }: IRequest) {
     const user = await this.userRepository.findById(id);
 
     if (name) {

@@ -21,7 +21,7 @@ describe("Update user", () => {
 
     const getUser = await userRepository.findByEmail("jonh@doe.com");
 
-    await updateUserUseCase.exute({ id: getUser.id, name: "Doe, John" });
+    await updateUserUseCase.execute({ id: getUser.id, name: "Doe, John" });
 
     const user = await userRepository.findById(getUser.id);
 
@@ -37,7 +37,7 @@ describe("Update user", () => {
 
     const getUser = await userRepository.findByEmail("jonh@doe.com");
 
-    await updateUserUseCase.exute({ id: getUser.id, password: "4321" });
+    await updateUserUseCase.execute({ id: getUser.id, password: "4321" });
 
     const user = await userRepository.findById(getUser.id);
 

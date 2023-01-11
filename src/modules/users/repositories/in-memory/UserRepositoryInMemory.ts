@@ -5,13 +5,14 @@ import { IUsersRepository } from "../IUsersRepository";
 export class UserRepositoryInMemory implements IUsersRepository {
   users: User[] = [];
 
-  async create({ email, name, password }: ICreateUser): Promise<void> {
+  async create({ email, name, password, isAdmin }: ICreateUser): Promise<void> {
     const user = new User();
 
     Object.assign(user, {
       name,
       email,
       password,
+      isAdmin,
     });
 
     this.users.push(user);
@@ -28,5 +29,9 @@ export class UserRepositoryInMemory implements IUsersRepository {
   async delete(id: string): Promise<void> {
     const index = this.users.findIndex((user) => user.id !== id);
     this.users.splice(index, 1);
+  }
+
+  async listAll(): Promise<User[]> {
+    return this.users;
   }
 }
