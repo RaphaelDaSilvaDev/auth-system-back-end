@@ -20,7 +20,7 @@ describe("Create user", () => {
     await createUserUseCase.execute(user);
   });
 
-  it("should not be able to create an user with an exisistent email", async () => {
+  it("should not be able to create an user with an existent email", async () => {
     expect(async () => {
       const user: ICreateUser = {
         email: "test@authsystem.com",
