@@ -4,6 +4,7 @@ import { CreateUserAdminController } from "@modules/users/useCases/createUserAdm
 import { DeleteUserController } from "@modules/users/useCases/deleteUser/deleteUserController";
 import { ListUserController } from "@modules/users/useCases/listUser/ListUserController";
 import { UpdateUserController } from "@modules/users/useCases/updateUser/UpdateUserController";
+import { UpdateUserAdminController } from "@modules/users/useCases/updateUserAmin/UpdateUserAdminController";
 import { Router } from "express";
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
 import { ensureIsAdmin } from "../middlewares/ensureIsAdmin";
@@ -16,6 +17,7 @@ const updateUserController = new UpdateUserController();
 const deleteUserController = new DeleteUserController();
 const listUserController = new ListUserController();
 const createUserAdmin = new CreateUserAdminController();
+const updateUserAdmin = new UpdateUserAdminController();
 
 userRoutes.post("/", createUserController.handle);
 
@@ -28,5 +30,7 @@ userRoutes.delete("/delete", ensureAuthenticated, deleteUserController.handle);
 userRoutes.get("/", ensureAuthenticated, ensureIsAdmin, listUserController.handle);
 
 userRoutes.post("/admin", ensureAuthenticated, ensureIsAdmin, createUserAdmin.handle);
+
+userRoutes.post("/admin/update/:id", ensureAuthenticated, ensureIsAdmin, updateUserAdmin.handle);
 
 export { userRoutes };

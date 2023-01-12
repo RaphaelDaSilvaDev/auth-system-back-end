@@ -25,9 +25,11 @@
 - [x] Criação do middleware de autenticação de usuário
 - [x] Criação da rota de atualização de usuário
 - [x] Criação da rota de deleção de usuário
-- [ ] Criação do middleware de autenticação de administrador
-- [ ] Criação da rota de listagem de usuários (Administrador)
-- [ ] Criação de rota de criação de usuários (Administrador)
+- [x] Criação do middleware de autenticação de administrador
+- [x] Criação da rota de listagem de usuários (Administrador)
+- [x] Criação de rota de criação de usuários (Administrador)
+- [x] Criação da rota de atualização de usuário (Administrador)
+- [ ] Criação da rota de deleção de usuário (Administrador)
 
 ---
 
