@@ -9,7 +9,7 @@ export class UpdateUserController {
 
     const updateUserUseCase = container.resolve(UpdateUserUseCase);
 
-    await updateUserUseCase.exute({ id, name, password });
+    await updateUserUseCase.execute({ id, name, password });
 
     return response.status(201).send();
   }

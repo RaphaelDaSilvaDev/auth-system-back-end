@@ -29,7 +29,7 @@
 - [x] Criação da rota de listagem de usuários (Administrador)
 - [x] Criação de rota de criação de usuários (Administrador)
 - [x] Criação da rota de atualização de usuário (Administrador)
-- [ ] Criação da rota de deleção de usuário (Administrador)
+- [x] Criação da rota de deleção de usuário (Administrador)
 
 ---
 
