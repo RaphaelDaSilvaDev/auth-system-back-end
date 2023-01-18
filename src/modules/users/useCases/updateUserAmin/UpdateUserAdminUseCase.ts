@@ -23,7 +23,11 @@ export class UpdateUserAdminUseCase {
     const user = await this.userRepository.findById(id);
 
     if (!user) {
-      throw new AppError("User isn't exists");
+      throw new AppError("This user is not exists");
+    }
+
+    if (!name && !password && !password && isAdmin === undefined) {
+      throw new AppError("You need set a field for update");
     }
 
     if (name) {
