@@ -3,12 +3,14 @@ import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
 import { AppError } from "@shared/errors/AppError";
 import { hash } from "bcrypt";
 import { inject, injectable } from "tsyringe";
+import { AuthenticationUserUseCase } from "../authenticationUser/AuthenticationUserUseCase";
 
 @injectable()
 export class CreateUserUseCase {
   constructor(
     @inject("UsersRepository")
-    private usersRepository: IUsersRepository
+    private usersRepository: IUsersRepository,
+    private authenticationUserUseCase: AuthenticationUserUseCase
   ) {}
 
   async execute({ email, name, password }: ICreateUser) {
@@ -25,5 +27,9 @@ export class CreateUserUseCase {
       email,
       password: passwordHash,
     });
+
+    const response = await this.authenticationUserUseCase.execute({ email, password });
+
+    return response;
   }
 }
