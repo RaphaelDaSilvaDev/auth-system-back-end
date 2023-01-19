@@ -10,6 +10,6 @@ export class CreateUserController {
 
     const auth = await createUserUseCase.execute({ name, email, password });
 
-    return response.status(201).json({ auth });
+    return response.status(201).json(auth);
   }
 }

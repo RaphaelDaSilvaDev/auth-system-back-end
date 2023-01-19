@@ -37,7 +37,7 @@ export class UsersRepository implements IUsersRepository {
   }
 
   async listAll(): Promise<User[]> {
-    const users = await this.repository.find();
+    const users = await this.repository.find({ order: { created_at: "ASC" } });
     return users;
   }
 }
